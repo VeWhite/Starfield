@@ -1,19 +1,23 @@
-NormalParticle[] newParticle;
+Particle[] newParticle;
 
 void setup()
 {
 	size(512, 512);
 	background(0);
-	newParticle = new NormalParticle[500];
+	newParticle = new Particle[500];
 	for(int i = 0; i < newParticle.length; i++)
 	{
+		newParticle[0] = new OddballParticle();
 		newParticle[i] = new NormalParticle();
+
 	}
 }
 void draw()
 {
 	for(int i = 0; i < newParticle.length; i++)
 	{
+		newParticle[0].move();
+		newParticle[0].show();
 		newParticle[i].move();
 		newParticle[i].show();
 	}
@@ -40,6 +44,7 @@ class NormalParticle implements Particle
 	}
 	public void show()
 	{
+		
 		fill(myColor);
 		ellipse((int)x, (int)y, 5, 5);
 	}
@@ -64,11 +69,14 @@ class OddballParticle implements Particle
 	public void show()
 	{
 		noStroke();
-		ellipse((int)x, (int)y, 75, 75);
+		ellipse((int)x, (int)y, 25, 25);
 	}
 }	
-class JumboParticle //uses inheritance
+class JumboParticle extends Particle
 {
-	//your code here
+	public void show()
+	{
+		
+	}
 }
 
