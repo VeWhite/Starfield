@@ -74,16 +74,17 @@ class OddballParticle implements Particle
 		noStroke();
 		ellipse((int)x, (int)y, 10, 10);
 		ellipse((int)x+5, (int)y+5, 10, 10);
+		ellipse((int)x-5, (int)y-5, 10, 10);
 
 
 	}
 }	
-class JumboParticle extends Particle
+/*class JumboParticle extends Particle
 {
       
 	public void show()
 	{
 		ellipse((int)x, (int)y, 100, 100);
 	}
-}
+}*/
 
