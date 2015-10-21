@@ -8,7 +8,7 @@ void setup()
 	for(int i = 0; i < newParticle.length; i++)
 	{
 		newParticle[0] = new OddballParticle();
-		//newParticle[1] = new JumboParticle();
+		newParticle[1] = new JumboParticle();
 		newParticle[i] = new NormalParticle();
 
 	}
@@ -19,8 +19,8 @@ void draw()
 	{
 		newParticle[0].move();
 		newParticle[0].show();
-		//newParticle[1].move();
-		//newParticle[1].show();
+		newParticle[1].move();
+		newParticle[1].show();
 		newParticle[i].move();
 		newParticle[i].show();
 	}
@@ -44,6 +44,11 @@ class NormalParticle implements Particle
 	{
 		x = Math.cos(myAngle)*mySpeed + x;
 		y = Math.sin(myAngle)*mySpeed + y;
+		if (x > 511 || x < 1 || y > 511 || y < 1)
+		{
+			 x = 250;
+			 y = 250;
+		}
 	}
 	public void show()
 	{
@@ -68,23 +73,34 @@ class OddballParticle implements Particle
 	{
 		x = Math.sin(myAngle)*mySpeed + x;
 		y = Math.cos(myAngle)*mySpeed + y;
+		if (x > 511 || x < 1 || y > 511 || y < 1)
+		{
+			 x = 250;
+			 y = 250;
+		}
+
 	}
 	public void show()
 	{
 		noStroke();
 		ellipse((int)x, (int)y, 10, 10);
-		ellipse((int)x+5, (int)y+5, 10, 10);
-		ellipse((int)x-5, (int)y-5, 10, 10);
+		ellipse((int)x+8, (int)y+8, 10, 10);
+		ellipse((int)x-8, (int)y-8, 10, 10);
 
 
 	}
 }	
-/*class JumboParticle extends Particle
+class JumboParticle extends OddballParticle
 {
       
 	public void show()
 	{
 		ellipse((int)x, (int)y, 100, 100);
+		ellipse((int)x+40, (int)y-40, 80, 80);
+		ellipse((int)x-40, (int)y-40, 80, 80);
+		fill(0);
+		ellipse((int)x+15, (int)y, 10, 10);
+		ellipse((int)x-15, (int)y, 10, 10);
 	}
-}*/
+}
 
