@@ -84,7 +84,7 @@ class OddballParticle implements Particle
 	{
 		noStroke();
 		ellipse((int)x, (int)y, 10, 10);
-		ellipse((int)x+8, (int)y+8, 10, 10);
+		ellipse((int)x+8, (int)y-8, 10, 10);
 		ellipse((int)x-8, (int)y-8, 10, 10);
 
 
